@@ -35,9 +35,9 @@ function declensionWord(num, words) {
     } else if (num % 10 === 1) {
         if (num % 100 !== 12 && num % 100 !== 13 && num % 100 !== 14) {
             return words[1]
-    } else {
-            return words[2]
         }
+    } else {
+        return words[2]
     }
 }
 
