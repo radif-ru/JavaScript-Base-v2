@@ -25,14 +25,12 @@
 // https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/switch#Methods_for_Multi-criteria_Case
 
 function declensionWord(num, words) {
-    if (num % 10 === 1) {
-        if (num % 100 !== 11) {
-            return words[0];
-        }
+    if ((num % 10 === 1) && (num % 100 !== 11)) {
+        return words[0];
     } else if ((num % 10 === 2 || num % 10 === 3 || num % 10 === 3)
         && (num % 100 !== 12 && num % 100 !== 13 && num % 100 !== 14)) {
-            return words[1]
-        } else {
+        return words[1]
+    } else {
         return words[2]
     }
 }
