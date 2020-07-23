@@ -1,32 +1,55 @@
 'use strict';
 
-// Реализовать основные 4 арифметические операции (+, -, /, *) в виде функций с двумя
+// 4. Реализовать основные 4 арифметические операции (+, -, /, *) в виде функций с двумя
 // параметрами. Т.е. например, функция для сложения должна принимать два числа, складывать их
 // и возвращать результат.
 // Обязательно использовать оператор return.
 
 /**
- * Функция операций над числами
- * @param {number} num_1 Первое число
- * @param num_2 Второе число
- * @param operation Знак или название операции
- * @returns {number|*} Результат операции над числами num_1 и num_2
+ * Функция сложения
+ * @param {number} arg1 Первый аргумент
+ * @param {number} arg2 Второй аргумент
+ * @returns {number} Результат операции
  */
-function getNumbersOperation(num_1, num_2, operation='+') {
-    switch (operation) {
-        case "+" || 'sum':
-            return num_1 + num_2;
-        case '-' || 'difference' || 'dif':
-            return num_1 - num_2;
-        case '/' || 'division' || 'div':
-            return num_1 / num_2;
-        case '*' || 'multiplication' || 'mult':
-            return num_1 * num_2;
-    }
+function sumNums(arg1, arg2) {
+    return arg1 + arg2;
+}
+
+/**
+ * Функция вычитания
+ * @param {number} arg1 Первый аргумент
+ * @param {number} arg2 Второй аргумент
+ * @returns {number} Результат операции
+ */
+function differenceNums(arg1, arg2) {
+    return arg1 - arg2;
+}
+
+/**
+ * Функция деления
+ * @param {number} arg1 Первый аргумент
+ * @param {number} arg2 Второй аргумент
+ * @returns {number} Результат операции
+ */
+function divisionNums(arg1, arg2) {
+    return arg1 / arg2;
+}
+
+/**
+ * Функция умножения
+ * @param {number} arg1 Первый аргумент
+ * @param {number} arg2 Второй аргумент
+ * @returns {number} Результат операции
+ */
+function multiplicationNums(arg1, arg2) {
+    return arg1 * arg2;
 }
 
 let num_1 = +prompt('Введите первое число');
 let num_2 = +prompt('Введите второе число');
-let operation = prompt('Введите операцию (+, -, /, *)');
 
-alert(`Результат: ${getNumbersOperation(num_1, num_2, operation)}`);
+alert(`Результаты операций над ${num_1} и ${num_2}: 
+        \nСумма: ${sumNums(num_1, num_2)} 
+        \nРазность: ${differenceNums(num_1, num_2)}
+        \nДеление: ${divisionNums(num_1, num_2)}
+        \nУмножение: ${multiplicationNums(num_1, num_2)}`);
