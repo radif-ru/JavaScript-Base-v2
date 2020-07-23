@@ -24,6 +24,12 @@
 // конце одно слово «рублей»). Это можно посмотреть здесь:
 // https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/switch#Methods_for_Multi-criteria_Case
 
+/**
+ * Функция склонения слова в зависимости от стоящего числа перед ним
+ * @param {number} num Число
+ * @param {[]} words Массив из 3 слов для чисел
+ * @returns {string} Возвращаемое значене (склоняемое слово)
+ */
 function declensionWord(num, words) {
     if ((num % 10 === 1) && (num % 100 !== 11)) {
         return words[0];
