@@ -34,8 +34,7 @@ function numbersOperation(a, b) {
         return `а (${a}) и b (${b}) отрицательные, их произведение: ${a * b}`
     } else if (((Math.sign(a) > 0) && (Math.sign(b) < 0)) || ((Math.sign(a) < 0) && (Math.sign(b) > 0))) {
         return `а (${a}) и b (${b}) разных знаков, их сумма: ${a + b}`
-    }
-    else {
+    } else {
         return `Для чисел а (${a}) и b (${b}) подходящих условий не найдено`
     }
 }

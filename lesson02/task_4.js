@@ -1,28 +1,32 @@
 'use strict';
 
-// Присвоить переменной а значение в промежутке [0..15]. С помощью оператора switch организовать вывод чисел от a до 15.
+// Реализовать основные 4 арифметические операции (+, -, /, *) в виде функций с двумя
+// параметрами. Т.е. например, функция для сложения должна принимать два числа, складывать их
+// и возвращать результат.
+// Обязательно использовать оператор return.
 
 /**
- * Функция возвращает случайное целое число между min (включительно) и max (не включая max)
- * @param {number} min
- * @param {number} max
- * @returns {number}
- * @see https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math/random#Examples
+ * Функция операций над числами
+ * @param {number} num_1 Первое число
+ * @param num_2 Второе число
+ * @param operation Знак или название операции
+ * @returns {number|*} Результат операции над числами num_1 и num_2
  */
-function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min;
-}
-
-function alertNums(a) {
-    switch (a) {
-        case 1:
-            alert(a++);
-        case 2:
-            alert(a++);
-        case 3:
-            alert(a++);
+function getNumbersOperation(num_1, num_2, operation='+') {
+    switch (operation) {
+        case "+" || 'sum':
+            return num_1 + num_2;
+        case '-' || 'difference' || 'dif':
+            return num_1 - num_2;
+        case '/' || 'division' || 'div':
+            return num_1 / num_2;
+        case '*' || 'multiplication' || 'mult':
+            return num_1 * num_2;
     }
 }
 
-let a = getRandomInt(0, 16);
-alertNums(a);
+let num_1 = +prompt('Введите первое число');
+let num_2 = +prompt('Введите второе число');
+let operation = prompt('Введите операцию (+, -, /, *)');
+
+alert(`Результат: ${getNumbersOperation(num_1, num_2, operation)}`);
