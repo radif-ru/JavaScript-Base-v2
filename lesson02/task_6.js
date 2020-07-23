@@ -29,11 +29,10 @@ function declensionWord(num, words) {
         if (num % 100 !== 11) {
             return words[0];
         }
-    } else if (num % 10 === 2 || num % 10 === 3 || num % 10 === 3) {
-        if (num % 100 !== 12 && num % 100 !== 13 && num % 100 !== 14) {
+    } else if ((num % 10 === 2 || num % 10 === 3 || num % 10 === 3)
+        && (num % 100 !== 12 && num % 100 !== 13 && num % 100 !== 14)) {
             return words[1]
-        }
-    } else {
+        } else {
         return words[2]
     }
 }
