@@ -25,9 +25,6 @@
 // https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/switch#Methods_for_Multi-criteria_Case
 
 function declensionWord(num, words) {
-    // let word_0 = num % 10 === 1 && num % 100 !== 11;
-    // let word_1 = num % 10 === 1 && num % 100 !== 11;
-
     if (num % 10 === 1) {
         if (num % 100 !== 11) {
             return words[0];
