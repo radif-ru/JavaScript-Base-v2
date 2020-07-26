@@ -41,6 +41,9 @@ products.forEach(function (product) {
 
 console.log('\n2. Отсортированный массив объектов товаров по цене');
 products.sort(function (product1, product2) {
+    if (product1.price === product2.price) {
+        return 0
+    }
     if (product1.price > product2.price) {
         return 1
     } else {
