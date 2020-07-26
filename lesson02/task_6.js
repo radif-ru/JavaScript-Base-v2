@@ -33,7 +33,7 @@
 function declensionWord(num, words) {
     if ((num % 10 === 1) && (num % 100 !== 11)) {
         return words[0];
-    } else if ((num % 10 === 2 || num % 10 === 3 || num % 10 === 3)
+    } else if ((num % 10 === 2 || num % 10 === 3 || num % 10 === 4)
         && (num % 100 !== 12 && num % 100 !== 13 && num % 100 !== 14)) {
         return words[1]
     } else {
@@ -41,6 +41,7 @@ function declensionWord(num, words) {
     }
 }
 
+//можно подставить любые слова под ситуацию, н-р: ['лошадь', 'лошади', 'лошадей'] - 1 лошадь, 2 лошади, 5 лошадей и т.д.
 let declension_words = ['рубль', 'рубля', 'рублей'];
 let user_num = +prompt('Введите сумму, которую хотите положить в банк');
 alert(`Ваша сумма в ${user_num} ${declensionWord(user_num, declension_words)} успешно зачислена.`);
