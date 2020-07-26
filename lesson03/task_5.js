@@ -35,7 +35,7 @@ const products = [
 console.log('1. Товары с фото:');
 products.forEach(function (product) {
     if (product.photos && product.photos.length > 0) {
-        console.log(`1. Товары с фото: \nid: ${product.id}, price: ${product.price}, photos: ${product.photos}`)
+        console.log(`id: ${product.id}, price: ${product.price}, photos: ${product.photos}`)
     }
 });
 
