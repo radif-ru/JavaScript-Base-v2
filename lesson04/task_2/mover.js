@@ -9,7 +9,8 @@ let mover = {
 
         while (true) {
             // Получаем от пользователя направление.
-            let direction = parseInt(prompt('Введите число (1, 2, 3, 4, 6, 7, 8, 9), куда вы хотите переместиться, "Отмена" для выхода.'));
+            let direction = parseInt(prompt('Введите число (1, 2, 3, 4, 6, 7, 8, 9), ' +
+                'куда вы хотите переместиться, "Отмена" для выхода.'));
             if (isNaN(direction)) {
                 return null;
             }
@@ -37,6 +38,7 @@ let mover = {
             x: player.x,
             y: player.y,
         };
+
         // Определяем направление и обновляем местоположение игрока в зависимости от направления.
         switch (direction) {
             case 2:
@@ -48,6 +50,7 @@ let mover = {
             case 6:
                 nextPosition.x++;
                 break;
+        // Ниже реализованы ходы по диагонали
             case 8:
                 nextPosition.y--;
                 break;
@@ -69,6 +72,25 @@ let mover = {
                 break;
         }
 
-        return nextPosition;
+        return this.NextPositionVerify(nextPosition);
+    },
+
+    /**
+     * Проверяет возможно ли перемещение на следующую позицию, если нет возвращает исходную
+     * @param nextPosition - предлагаемая следующая позиция
+     * @returns {{x: number, y: number}|*} - возвращает следующую позицию игрока исходя из условий
+     */
+    NextPositionVerify(nextPosition) {
+        if ((nextPosition.x > config.colsCount - 1) ||
+            (nextPosition.x < 0) ||
+            (nextPosition.y > config.rowsCount - 1) ||
+            (nextPosition.y < 0)) {
+            return {
+                x: player.x,
+                y: player.y,
+            };
+        } else {
+            return nextPosition
+        }
     },
 };
