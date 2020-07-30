@@ -24,24 +24,28 @@ d. Куда я попал?
 let game = {
     init() {
         alert('Добро пожаловть в игру «Кто хочет стать миллионером?».');
-        this.run()
+        this.run(0)
     },
 
-    run() {
-        let riddle = this.getRiddle();
+    run(riddle_num) {
+        let riddle = this.getRiddle(riddle_num);
         let userOption = prompt(riddle.getOptions);
 
         if (this.optionValidator(userOption, riddle.correct)) {
             alert('Правильный ответ');
+            player.score++;
+            this.run(riddle_num++);
+        } else {
+            this.run(riddle_num);
         }
         console.log(riddle.getOptions, riddle.correctOption);
     },
 
-    getRiddle() {
-        let riddle_num = 0;
-        if (riddle_num < riddles.length) {
-            riddle_num++;
-            return new Riddle(riddles[riddle_num]);
+    getRiddle(riddle_num) {
+        if (num < riddles.length) {
+            return new Riddle(riddles[num]);
+        } else {
+            alert(`Игра окончена. Счёт игрока: ${player.score}`)
         }
     },
 
