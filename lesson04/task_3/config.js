@@ -1,4 +1,4 @@
 const config = {
-    list: ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+    list: ['a', 'b', 'c', 'd', 'e', 'f', 'g'],
 };
 

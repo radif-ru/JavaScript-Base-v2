@@ -28,15 +28,25 @@ let game = {
     },
 
     run() {
-        let userOption = prompt(riddle1.getOptions);
-        if (this.optionValidator(userOption)) {
+        let riddle = this.getRiddle();
+        let userOption = prompt(riddle.getOptions);
+
+        if (this.optionValidator(userOption, riddle.correct)) {
             alert('Правильный ответ');
         }
-        console.log(riddle1.getOptions, riddle1.correctOption);
+        console.log(riddle.getOptions, riddle.correctOption);
     },
 
-    optionValidator(userOption) {
-        if (userOption === config.list[riddle1.correct]) {
+    getRiddle() {
+        let riddle_num = 0;
+        if (riddle_num < riddles.length) {
+            riddle_num++;
+            return new Riddle(riddles[riddle_num]);
+        }
+    },
+
+    optionValidator(userOption, correct) {
+        if (userOption === config.list[correct]) {
             return true;
         }
     }

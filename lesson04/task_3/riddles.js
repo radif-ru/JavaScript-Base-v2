@@ -46,9 +46,9 @@ const riddles = [
     },
 ];
 
-const riddle1 = new Riddle(riddles[0]);
-const riddle2 = new Riddle(riddles[1]);
-const riddle3 = new Riddle(riddles[2]);
-const riddle4 = new Riddle(riddles[3]);
-const riddle5 = new Riddle(riddles[4]);
+// const riddle1 = new Riddle(riddles[0]);
+// const riddle2 = new Riddle(riddles[1]);
+// const riddle3 = new Riddle(riddles[2]);
+// const riddle4 = new Riddle(riddles[3]);
+// const riddle5 = new Riddle(riddles[4]);
 
