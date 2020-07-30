@@ -20,3 +20,17 @@ d. Куда я попал?
 сыграть снова.
 Также должна быть возможность выхода из игры заранее, если пользователю надоело играть.
 */
+
+let game = {
+    init() {
+        alert('Добро пожаловть в игру «Кто хочет стать миллионером?».');
+        this.run()
+    },
+
+    run() {
+        let userOption = prompt(riddle1.getOptions)
+        console.log(riddle1.getOptions, riddle1.correctOption);
+    }
+};
+
+game.init();
