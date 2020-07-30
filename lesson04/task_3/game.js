@@ -28,8 +28,17 @@ let game = {
     },
 
     run() {
-        let userOption = prompt(riddle1.getOptions)
+        let userOption = prompt(riddle1.getOptions);
+        if (this.optionValidator(userOption)) {
+            alert('Правильный ответ');
+        }
         console.log(riddle1.getOptions, riddle1.correctOption);
+    },
+
+    optionValidator(userOption) {
+        if (userOption === config.list[riddle1.correct]) {
+            return true;
+        }
     }
 };
 
