@@ -1,3 +1,5 @@
+'use strict';
+
 /*1.2 Сделайте в стиле es5, а затем в стиле es6 (по аналогии из урока),
 а) конструктор Post, который принимает параметры author, text, date и сохраняет их как свойства
 объекта. Объекты типа Post должны иметь метод edit, который будет принимать текст и записывать
@@ -43,7 +45,8 @@ AttachedPost.prototype.constructor = AttachedPost;
 const date = new Date();
 const attached_post = new AttachedPost('Vasya', 'lorem', `${date}`);
 attached_post.makeTextHighlighted();
-// attached_post.edit('new lorem') - не работает наследование. Почему?;
+// - не работает наследование. Почему? Соответсвенно код ниже приводит к ошибке
+// attached_post.edit('new lorem');
 
 const post = new Post('Vanya', 'ipsum', `${date}`);
 post.edit('new ipsum');
