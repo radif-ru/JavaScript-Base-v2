@@ -1,23 +1,11 @@
-class Riddle {
-    constructor(riddle) {
-        this.riddle = riddle.riddle;
-        this.options = riddle.options;
-        this.correct = riddle.correct;
-    }
+'use strict';
 
-    get getOptions() {
-        let option = '';
-        for (let key in this.options) {
-            option += `${config.list[key]}. ${this.options[key]}\n`;
-        }
-        return option
-    }
-
-    get correctOption() {
-        return `${config.list[this.correct]}. ${this.options[this.correct]}`
-    }
-}
-
+/**
+ * Массив из объектов загадок
+ * {str} riddle Загадка
+ * {[]} options Варианты ответов в массиве
+ * {num} correct Номер правильного ответа в массиве
+ */
 const riddles = [
     {
         riddle: 'Зимой и летом одним цветом',
@@ -25,30 +13,28 @@ const riddles = [
         correct: 3
     },
     {
+        riddle: 'Какими нотами можно измерить пространство?',
+        options: ['до - ре - ми', 'фа - ся -ли', 'ми – ля – ми', 'ре - ми - до', 'соль'],
+        correct: 2
+    },
+    {
+        riddle: 'Речка спятила с ума —\nПо домам пошла сама.',
+        options: ['наводнение', 'водопровод', 'тайфун', 'цунами', 'апокалипсис'],
+        correct: 1
+    },
+    {
+        riddle: 'Что идет, оставаясь на месте?',
+        options: ['дорога', 'время', 'часы', 'жизнь'],
+        correct: 0
+    },
+    {
         riddle: 'Не лает, не кусает, в дом не пускает',
-        options: ['ёлка', 'доллар', 'негр', 'все варианты верны'],
+        options: ['замок', 'сторож', 'ЧОП', 'все варианты верны'],
         correct: 3
     },
     {
-        riddle: 'Зимой и летом одним цветом',
-        options: ['ёлка', 'доллар', 'негр', 'все варианты верны'],
-        correct: 3
-    },
-    {
-        riddle: 'Зимой и летом одним цветом',
-        options: ['ёлка', 'доллар', 'негр', 'все варианты верны'],
-        correct: 3
-    },
-    {
-        riddle: 'Зимой и летом одним цветом',
-        options: ['ёлка', 'доллар', 'негр', 'все варианты верны'],
-        correct: 3
+        riddle: 'У отца Мэри есть 5 дочерей: Чача, Чичи, Чече, Чочо. Как зовут 5 дочь?',
+        options: ['Чуч Хе', 'Мэри', 'Чан Дун', 'Чичваркина'],
+        correct: 1
     },
 ];
-
-// const riddle1 = new Riddle(riddles[0]);
-// const riddle2 = new Riddle(riddles[1]);
-// const riddle3 = new Riddle(riddles[2]);
-// const riddle4 = new Riddle(riddles[3]);
-// const riddle5 = new Riddle(riddles[4]);
-

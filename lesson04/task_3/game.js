@@ -22,37 +22,58 @@ d. Куда я попал?
 */
 
 let game = {
+    /**
+     * Приветствие, запуск игры
+     */
     init() {
         alert('Добро пожаловть в игру «Кто хочет стать миллионером?».');
-        this.run(0)
+        this.run()
     },
 
-    run(riddle_num) {
-        let riddle = this.getRiddle(riddle_num);
-        let userOption = prompt(riddle.getOptions);
+    /**
+     * Вызывает создание объекта загадки, запрашивает ответ пользователя, запускает метод проверки ответа
+     */
+    run() {
+        let riddle = this.getRiddle();
+        player.user_option = prompt(riddle.getOptions);
+        this.optionValidator(riddle);
+    },
 
-        if (this.optionValidator(userOption, riddle.correct)) {
+    /**
+     * Создаётся объект загадки по номеру из массива загадок,
+     * если загадки закончились уведомляет о завершении игры с выводом счёта
+     * @returns {Riddle} - объект созданный на базе класса Riddle
+     */
+    getRiddle() {
+        if (player.riddle_num < riddles.length) {
+            return new Riddle(riddles[player.riddle_num]);
+        } else {
+            alert(`Игра окончена. Счёт игрока: ${player.score} из ${riddles.length}`);
+        }
+    },
+
+    /**
+     * Сравнивает ответ игрока с правильным, запускает очередную загадку,
+     * если пользователь завершает игру выводит счёт
+     * @param {Riddle} riddle - объект загадки
+     */
+    optionValidator(riddle) {
+        if (player.user_option === 'exit' || player.user_option === null) {
+            alert(`Игра окончена. Счёт игрока: ${player.score} из ${riddles.length}`);
+            return;
+        }
+        if (player.user_option === config.identify_list[riddle.correct]) {
             alert('Правильный ответ');
             player.score++;
-            this.run(riddle_num++);
+        } else if (config.identify_list.indexOf(player.user_option) === -1) {
+            alert('Данные некорректны, повторите ввод идентификатора ответа без точки в конце');
+            this.run();
+            return;
         } else {
-            this.run(riddle_num);
+            alert('Неправильный ответ');
         }
-        console.log(riddle.getOptions, riddle.correctOption);
-    },
-
-    getRiddle(riddle_num) {
-        if (num < riddles.length) {
-            return new Riddle(riddles[num]);
-        } else {
-            alert(`Игра окончена. Счёт игрока: ${player.score}`)
-        }
-    },
-
-    optionValidator(userOption, correct) {
-        if (userOption === config.list[correct]) {
-            return true;
-        }
+        player.riddle_num++;
+        this.run();
     }
 };
 

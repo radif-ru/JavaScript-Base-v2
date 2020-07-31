@@ -11,13 +11,9 @@ function Product(name, price) {
     this.price = price;
 }
 
-Product.prototype = {
-    make25PercentDiscount: function () {
+Product.prototype.make25PercentDiscount = function () {
         this.price = this.price - this.price * 0.25;
-    }
 };
-
-Product.prototype.constructor = Product;
 
 const product = new Product('calculator', 100);
 product.make25PercentDiscount();

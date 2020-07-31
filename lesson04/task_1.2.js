@@ -19,34 +19,25 @@ function Post(author, text, date) {
     this.date = date;
 }
 
-Post.prototype = {
-    edit: function (text) {
-        this.text = text;
-    }
+Post.prototype.edit = function (text) {
+    this.text = text;
 };
-
-Post.prototype.constructor = Post;
 
 function AttachedPost(author, text, date) {
     Post.call(this, author, text, date);
     this.highlighted = false;
 }
 
-// Не работает наследование. Почему? Если поставить ниже, то перестаёт работать AttachedPost.makeTextHighlighted
 AttachedPost.prototype = Object.create(Post.prototype);
-AttachedPost.prototype = {
-    makeTextHighlighted: function () {
-        this.highlighted = true;
-    }
-};
 AttachedPost.prototype.constructor = AttachedPost;
-
+AttachedPost.prototype.makeTextHighlighted = function () {
+    this.highlighted = true;
+};
 
 const date = new Date();
 const attached_post = new AttachedPost('Vasya', 'lorem', `${date}`);
 attached_post.makeTextHighlighted();
-// - не работает наследование. Почему? Соответсвенно код ниже приводит к ошибке
-// attached_post.edit('new lorem');
+attached_post.edit('new lorem');
 
 const post = new Post('Vanya', 'ipsum', `${date}`);
 post.edit('new ipsum');
