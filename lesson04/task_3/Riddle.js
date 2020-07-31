@@ -8,6 +8,7 @@ class Riddle {
         this.riddle = riddle.riddle;
         this.options = riddle.options;
         this.correct = riddle.correct;
+        this.random_options = [];
     }
 
     /**
@@ -15,15 +16,28 @@ class Riddle {
      * @returns {string}
      */
     get getOptions() {
+        this.random_options = [];
         let option = `${this.riddle} \n`;
         for (let key in this.options) {
-            option += `${config.identify_list[key]}. ${this.options[key]}\n`;
+            let random = this.getRandomPositionResponses();
+            option += `${config.identify_list[key]}. ${this.options[random]}\n`;
         }
         option += '\nВведите идентификатор ответа\nДля выхода наберите "exit" или нажмите "Отмена"';
         return option
     }
 
-    get correctOption() {
-        return `${config.identify_list[this.correct]}. ${this.options[this.correct]}`
+    /**
+     * Возвращает случайные позиции ответов загадок
+     * @returns {number|undefined}
+     */
+    getRandomPositionResponses() {
+        let max = Math.floor(this.options.length);
+        let random = Math.floor(Math.random() * max);
+        if (this.random_options.indexOf(random) === -1) {
+            this.random_options.push(random);
+            return random;
+        } else if (!(this.random_options.length === this.options.length)) {
+            return this.getRandomPositionResponses()
+        }
     }
 }
