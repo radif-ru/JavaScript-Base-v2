@@ -38,7 +38,7 @@ let game = {
             this.getRiddle();
         }
         //Запрашивает ответ пользователя на загадку, если остались
-        if (player.riddle_num !== riddles.length){
+        if (player.riddle_num !== riddles.length) {
             player.user_option = prompt(player.current_riddle.getOptions);
         }
         this.optionValidator(player.current_riddle);
@@ -65,8 +65,8 @@ let game = {
             player.user_option === null ||
             player.riddle_num === riddles.length) {
             alert(`Игра окончена. Счёт игрока: ${player.score} из ${riddles.length}`);
-            let question = prompt('Сыграем снова? \nВведите ответ: "да" если хотите играть ещё');
-            if (question === 'да') {
+            let question = confirm('Сыграем снова?');
+            if (question) {
                 this.reset();
             }
             return;
