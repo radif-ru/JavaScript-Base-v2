@@ -1,0 +1,33 @@
+*
+  margin: 0
+  padding: 0
+
+html
+  height: 100%
+
+body
+  height: 100%
+
+.container
+  position: relative
+  height: 100%
+  width: 1200px
+  margin: 0 auto
+
+.modal
+  &-window
+    position: absolute
+    width: 50%
+    height: 50%
+    background: moccasin
+    &_flex-pos
+      display: flex
+      justify-content: center
+      align-content: center
+      align-items: center
+    &__bg-gray
+      background: gray
+    &-button
+      padding: 5px
+
+@import "animations"
