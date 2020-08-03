@@ -15,39 +15,29 @@ body {
   margin: 0 auto;
   background: azure; }
 
-.modal-window {
-  position: absolute;
-  width: 50%;
-  height: 50%;
-  background: moccasin;
-  top: 25%;
-  left: 25%;
-  border-radius: 50%; }
-  .modal-window_flex-pos {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center; }
-  .modal-window__bg-gray {
-    background: dimgray; }
-  .modal-window__bg-opacity {
-    background: gray; }
-  .modal-window-button {
-    padding: 5px;
-    border-radius: 5%; }
-
-.product {
-  margin-right: 25px;
-  width: 150px; }
-  .product-container {
-    display: flex; }
-  .product-img {
-    width: 150px; }
-  .product button {
-    display: flex; }
-
-.display_none {
-  display: none; }
+.modal {
+  z-index: 999; }
+  .modal-window {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background: moccasin;
+    top: 25%;
+    left: 25%;
+    border-radius: 50%; }
+    .modal-window_flex-pos {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      align-items: center; }
+    .modal-window__bg-gray {
+      background: dimgray;
+      overflow-y: hidden; }
+    .modal-window__bg-opacity {
+      background: gray; }
+    .modal-window-button {
+      padding: 5px;
+      border-radius: 5%; }
 
 .rotate-hor-center {
   -webkit-animation: rotate-hor-center 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
@@ -78,5 +68,44 @@ body {
   100% {
     -webkit-transform: rotateX(-360deg);
     transform: rotateX(-360deg); } }
+.product {
+  margin-right: 25px;
+  width: 150px; }
+  .product-container {
+    display: flex; }
+  .product-img {
+    width: 150px; }
+  .product button {
+    display: flex; }
+
+.display_none {
+  display: none; }
+
+.chess-container table {
+  border-spacing: 0; }
+.chess-container .bg__white {
+  background: azure;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 40px; }
+.chess-container .bg__black {
+  background: #7a5000;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 40px; }
+.chess-container .name-cells {
+  background: moccasin;
+  height: 25px;
+  text-align: center; }
+  .chess-container .name-cells__invert {
+    transform: rotate(-180deg); }
+.chess-container .num-cells {
+  background: moccasin;
+  width: 25px;
+  text-align: center; }
+  .chess-container .num-cells__invert {
+    transform: rotate(-180deg); }
 
 /*# sourceMappingURL=style.css.map */

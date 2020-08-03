@@ -15,7 +15,9 @@ body
   margin: 0 auto
   background: azure
 
+//Task 1
 .modal
+  z-index: 999
   &-window
     position: absolute
     width: 50%
@@ -31,12 +33,16 @@ body
       align-items: center
     &__bg-gray
       background: dimgray
+      overflow-y: hidden
     &__bg-opacity
       background: gray
     &-button
       padding: 5px
       border-radius: 5%
 
+@import "animations"
+
+//Task 2
 .product
   margin-right: 25px
   width: 150px
@@ -50,4 +56,31 @@ body
 .display_none
   display: none
 
-@import "animations"
+//Task 3
+.chess-container
+  table
+    border-spacing: 0
+  .bg__white
+    background: azure
+    width: 50px
+    height: 50px
+    text-align: center
+    font-size: 40px
+  .bg__black
+    background: #7a5000
+    width: 50px
+    height: 50px
+    text-align: center
+    font-size: 40px
+  .name-cells
+    background: moccasin
+    height: 25px
+    text-align: center
+    &__invert
+      transform: rotate(-180deg)
+  .num-cells
+    background: moccasin
+    width: 25px
+    text-align: center
+    &__invert
+      transform: rotate(-180deg)

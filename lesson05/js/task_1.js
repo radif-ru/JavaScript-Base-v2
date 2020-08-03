@@ -1,11 +1,19 @@
-/*3. a. Сделайте модальное (появляющееся и исчезающее) окно
+'use strict';
+
+/*1. a. Сделайте модальное (появляющееся и исчезающее) окно
 b. (не обязательное задание) Сделайте анимацию при появлении и исчезании. Анимации можно взять здесь:
 1. https://github.com/miniMAC/magic (демо https://www.minimamente.com/project/magic/ )
 2. https://github.com/daneden/animate.css (демо https://daneden.github.io/animate.css/ )
 3. http://animista.net/
 */
 
+/**
+ * Объект модального окна
+ */
 let modalWindow = {
+    /**
+     * Инициализация, сохранение данных в свойства объекта, запуск слушателя событий
+     */
     init() {
         this.body = document.body;
         this.container = document.querySelector('.container');
@@ -15,6 +23,9 @@ let modalWindow = {
         this.activateEventListener();
     },
 
+    /**
+     * Слушатель событий, при клике запускает метод переключения классов и генрации тексста в кнопку
+     */
     activateEventListener() {
         this.button.addEventListener('click', function () {
             modalWindow.toggleClasses();
@@ -22,6 +33,9 @@ let modalWindow = {
         })
     },
 
+    /**
+     * Переключение классов
+     */
     toggleClasses() {
         this.body.classList.toggle('modal-window__bg-gray');
         this.container.classList.toggle('modal-window__bg-opacity');
@@ -30,14 +44,19 @@ let modalWindow = {
         this.modal.classList.toggle( 'rotate-hor-center');
     },
 
+    /**
+     * Генерация текста в кнопку
+     */
     innerButtonContent() {
         this.button.innerHTML === this.button_value ?
             this.button.innerHTML = 'Закрыть модальное окно' :
             this.button.innerHTML = this.button_value
     }
-
 };
 
+/**
+ * При загрузке DOM структуры запускает объект модального окна
+ */
 document.addEventListener("DOMContentLoaded", function () {
     modalWindow.init()
 });

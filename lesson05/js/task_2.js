@@ -1,4 +1,6 @@
-/*4. Сделайте несколько карточек товара, примерно такого вида:
+'use strict';
+
+/*2. Сделайте несколько карточек товара, примерно такого вида:
 При нажатии на кнопку «Подробнее» вместо картинки должен появляться текст с описанием товара, примерно так:
 Подсказки:
 1. Имейте в виду, что назначить обработку события можно по отдельности каждому элементу, а не всем
@@ -16,6 +18,10 @@ https://mzl.la/1AOMMWX
 элемент. Подробнее: https://codepen.io/IgorKubikov/pen/arWKpo?editors=1010
 */
 
+/**
+ * Класс, создающий обект с товаром, который обрабатывает переданное событие,
+ * на основе изменения классов со стилями реагирует на действия пользователя
+ */
 class ImageInText {
     constructor(event) {
         this.button = event.target;
@@ -23,6 +29,9 @@ class ImageInText {
         this.img = event.target.parentNode.querySelector('img');
     }
 
+    /**
+     * Переключение классов для стилей
+     */
     init() {
         if (this.desc.classList.contains('display_none')) {
             this.desc.classList.toggle('display_none');
@@ -36,6 +45,11 @@ class ImageInText {
     }
 }
 
+/**
+ * Генерирует продукты внутри контейнера (переданноо класса)
+ * @param productContainer Контейнер, переданный класс
+ * @param quantity Количество генерируемых товаров
+ */
 function htmlGenerate(productContainer, quantity = 3) {
     for (let i = 0; i < quantity; i++) {
         productContainer.innerHTML += `
@@ -58,10 +72,13 @@ const productContainer = document.querySelector('.product-container');
 htmlGenerate(productContainer, 5);
 const products = productContainer.querySelectorAll('.product');
 
+/**
+ * Вешает слушатели событий на кнопки товаров, при нажатии генерирует объект и вызывает его,
+ * передает событие в объект
+ */
 products.forEach(function (product) {
     product.querySelector('button').addEventListener('click', function (event) {
         let productButton = new ImageInText(event);
         productButton.init();
     })
 });
-
