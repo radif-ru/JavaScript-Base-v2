@@ -11,23 +11,30 @@ body {
 .container {
   position: relative;
   height: 100%;
-  width: 1200px;
-  margin: 0 auto; }
+  width: 1000px;
+  margin: 0 auto;
+  background: azure; }
 
 .modal-window {
   position: absolute;
   width: 50%;
   height: 50%;
-  background: moccasin; }
+  background: moccasin;
+  top: 25%;
+  left: 25%;
+  border-radius: 50%; }
   .modal-window_flex-pos {
     display: flex;
     justify-content: center;
     align-content: center;
     align-items: center; }
   .modal-window__bg-gray {
+    background: dimgray; }
+  .modal-window__bg-opacity {
     background: gray; }
   .modal-window-button {
-    padding: 5px; }
+    padding: 5px;
+    border-radius: 5%; }
 
 .rotate-hor-center {
   -webkit-animation: rotate-hor-center 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;

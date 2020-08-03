@@ -11,6 +11,7 @@ let modalWindow = {
         this.container = document.querySelector('.container');
         this.modal = document.querySelector('.modal');
         this.button = document.querySelector('.modal-window-button');
+        this.button_value =  document.querySelector('.modal-window-button').innerHTML;
         this.activateEventListener();
     },
 
@@ -22,17 +23,17 @@ let modalWindow = {
     },
 
     toggleClasses() {
-        this.container.classList.toggle('modal-window_flex-pos');
         this.body.classList.toggle('modal-window__bg-gray');
+        this.container.classList.toggle('modal-window__bg-opacity');
         this.modal.classList.toggle('modal-window');
         this.modal.classList.toggle( 'modal-window_flex-pos');
         this.modal.classList.toggle( 'rotate-hor-center');
     },
 
     innerButtonContent() {
-        this.button.innerHTML === 'Открыть модальное окно' ?
+        this.button.innerHTML === this.button_value ?
             this.button.innerHTML = 'Закрыть модальное окно' :
-            this.button.innerHTML = 'Открыть модальное окно'
+            this.button.innerHTML = this.button_value
     }
 
 };

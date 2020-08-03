@@ -11,8 +11,9 @@ body
 .container
   position: relative
   height: 100%
-  width: 1200px
+  width: 1000px
   margin: 0 auto
+  background: azure
 
 .modal
   &-window
@@ -20,14 +21,20 @@ body
     width: 50%
     height: 50%
     background: moccasin
+    top: 25%
+    left: 25%
+    border-radius: 50%
     &_flex-pos
       display: flex
       justify-content: center
       align-content: center
       align-items: center
     &__bg-gray
+      background: dimgray
+    &__bg-opacity
       background: gray
     &-button
       padding: 5px
+      border-radius: 5%
 
 @import "animations"
