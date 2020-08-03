@@ -36,6 +36,19 @@ body {
     padding: 5px;
     border-radius: 5%; }
 
+.product {
+  margin-right: 25px;
+  width: 150px; }
+  .product-container {
+    display: flex; }
+  .product-img {
+    width: 150px; }
+  .product button {
+    display: flex; }
+
+.display_none {
+  display: none; }
+
 .rotate-hor-center {
   -webkit-animation: rotate-hor-center 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
   animation: rotate-hor-center 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) both; }
