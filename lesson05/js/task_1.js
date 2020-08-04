@@ -37,11 +37,29 @@ let modalWindow = {
      * Переключение классов
      */
     toggleClasses() {
+        // Анимация открытия модального окна
+        this.modal.classList.toggle( 'rotate-hor-center');
+        // Если анимации открытия нет, добавляется анимация закрытия, затем через 0.5 сек удаляется
+        // и переключаются классы (toggleClasses2()) со стилями отвечающие за фон и оформление модального окна
+        if (!this.modal.classList.contains( 'rotate-hor-center')) {
+            this.modal.classList.toggle( 'scale-out-center');
+            setTimeout(function () {
+                modalWindow.modal.classList.toggle( 'scale-out-center');
+                modalWindow.toggleClasses2();
+            }, 500)
+        } else {
+            this.toggleClasses2();
+        }
+    },
+
+    /**
+     * Переключение классов. Некоторые перенесены сюда с основного метода, чтобы не дублировать код
+     */
+    toggleClasses2() {
         this.body.classList.toggle('modal-window__bg-gray');
         this.container.classList.toggle('modal-window__bg-opacity');
         this.modal.classList.toggle('modal-window');
         this.modal.classList.toggle( 'modal-window_flex-pos');
-        this.modal.classList.toggle( 'rotate-hor-center');
     },
 
     /**
