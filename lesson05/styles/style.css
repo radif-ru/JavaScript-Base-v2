@@ -116,30 +116,25 @@ body {
 
 .chess-container table {
   border-spacing: 0; }
+.chess-container .bg__white, .chess-container .bg__black {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 40px;
+  border: 1px black solid; }
 .chess-container .bg__white {
-  background: azure;
-  width: 50px;
-  height: 50px;
-  text-align: center;
-  font-size: 40px;
-  border: 1px black solid; }
+  background: azure; }
 .chess-container .bg__black {
-  background: #7a5000;
-  width: 50px;
-  height: 50px;
-  text-align: center;
-  font-size: 40px;
-  border: 1px black solid; }
-.chess-container .name-cells {
+  background: #7a5000; }
+.chess-container .name-cells, .chess-container .num-cells {
   background: moccasin;
-  height: 25px;
   text-align: center; }
+.chess-container .name-cells {
+  height: 25px; }
   .chess-container .name-cells__invert {
     transform: rotate(-180deg); }
 .chess-container .num-cells {
-  background: moccasin;
-  width: 25px;
-  text-align: center; }
+  width: 25px; }
   .chess-container .num-cells__invert {
     transform: rotate(-180deg); }
 

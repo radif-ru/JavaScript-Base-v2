@@ -60,29 +60,24 @@ body
 .chess-container
   table
     border-spacing: 0
+  .bg__white, .bg__black
+    width: 50px
+    height: 50px
+    text-align: center
+    font-size: 40px
+    border: 1px black solid
   .bg__white
     background: azure
-    width: 50px
-    height: 50px
-    text-align: center
-    font-size: 40px
-    border: 1px black solid
   .bg__black
     background: #7a5000
-    width: 50px
-    height: 50px
-    text-align: center
-    font-size: 40px
-    border: 1px black solid
-  .name-cells
+  .name-cells, .num-cells
     background: moccasin
-    height: 25px
     text-align: center
+  .name-cells
+    height: 25px
     &__invert
       transform: rotate(-180deg)
   .num-cells
-    background: moccasin
     width: 25px
-    text-align: center
     &__invert
       transform: rotate(-180deg)
