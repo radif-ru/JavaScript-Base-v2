@@ -66,7 +66,7 @@ const basketAndGoods = {
 <span class="removeButton" data-id="${id}">&#10008;</span>`;
             this.basketGoodsTotal.insertAdjacentElement("beforebegin", good);
             this.addEventClickRemoveButton(id);
-            // Если товар есть просто обновляет количество товаров
+            // Если однотипный товар есть просто обновляет количество товаров
         } else {
             let good = removeButton.parentNode;
             good.querySelector('.goodQuantity').innerHTML = +good.querySelector('.goodQuantity').innerHTML + 1;
