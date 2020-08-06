@@ -88,23 +88,30 @@ const basketAndGoods = {
 
     /**
      * Обрабатывает нажатия на иконку удаления товара, по переданному id вешает обработчик на конкретную кнопку
-     * при нажатии уменьшает количество товаров, если однотипных товаров меньше 1, удаляет DOM элемент с этим товаром
-     * после удаления запускает метод подсчёта итоговой стоимости товаров
+     * при нажатии запускает метод удаления товара, затем метод подсчёта итоговой стоимости товаров
      * @param id ID кнопки нового типа товаров в корзинет
      */
     addEventClickRemoveButton(id) {
         this.basketGoods.querySelector(`.removeButton[data-id="${id}"]`).addEventListener('click', (event) => {
             let good = event.target.parentNode;
-            let quantityHtml = good.querySelector('.goodQuantity');
-            let quantity = +quantityHtml.innerHTML;
-            if (quantity > 1) {
-                quantityHtml.innerHTML = quantity - 1;
-            } else {
-                good.parentNode.removeChild(good);
-            }
+            this.removeGoodInBasket(good);
             this.addTotalPrice();
         });
     },
+
+    /**
+     * Уменьшает количество товаров, если однотипных товаров меньше 1, удаляет DOM элемент с этим товаром
+     * @param good Товар
+     */
+    removeGoodInBasket(good) {
+        let quantityHtml = good.querySelector('.goodQuantity');
+        let quantity = +quantityHtml.innerHTML;
+        if (quantity > 1) {
+            quantityHtml.innerHTML = quantity - 1;
+        } else {
+            good.parentNode.removeChild(good);
+        }
+    }
 };
 
 document.addEventListener("DOMContentLoaded", () => {
