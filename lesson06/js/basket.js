@@ -52,7 +52,9 @@ const basketAndGoods = {
         let price = event.target.dataset.price;
         let name = event.target.dataset.name;
 
+        // Кнопка удаления товара, если её нет, записывает null в пременную
         let removeButton = this.basketGoods.querySelector(`.removeButton[data-id="${id}"]`);
+        // Если кнопки нет, значит товара, нет - добавляет товар в корзину - заполненная html разметка
         if (removeButton === null) {
             let good = document.createElement('div');
             good.classList.add('basket-goods-good');
@@ -64,9 +66,9 @@ const basketAndGoods = {
 <span class="removeButton" data-id="${id}">&#10008;</span>`;
             this.basketGoodsTotal.insertAdjacentElement("beforebegin", good);
             this.addEventClickRemoveButton(id);
+            // Если товар есть просто обновляет количество товаров
         } else {
             let good = removeButton.parentNode;
-            good.querySelector('.goodPrice').innerHTML = price;
             good.querySelector('.goodQuantity').innerHTML = +good.querySelector('.goodQuantity').innerHTML + 1;
         }
     },
