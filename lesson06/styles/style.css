@@ -766,6 +766,7 @@ body {
     padding: 0 10px;
     margin: 0.5% 0.5%; }
   .basket-goods {
+    display: none;
     z-index: 999;
     width: 33%;
     background: white;
@@ -785,6 +786,8 @@ body {
         width: 80px; }
         .basket-goods-title > span:last-child, .basket-goods-good > span:last-child {
           text-align: center; }
+    .basket-goods-good:hover {
+      background: moccasin; }
   .basket .removeButton:hover {
     color: red;
     cursor: pointer; }
