@@ -785,7 +785,7 @@ body {
         width: 80px; }
         .basket-goods-title > span:last-child, .basket-goods-good > span:last-child {
           text-align: center; }
-  .basket .remove-button:hover {
+  .basket .removeButton:hover {
     color: red;
     cursor: pointer; }
 
