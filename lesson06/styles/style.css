@@ -767,13 +767,25 @@ body {
     margin: 0.5% 0.5%; }
   .basket-goods {
     z-index: 999;
+    width: 33%;
     background: white;
     position: absolute;
     right: 0;
-    top: 50px;
+    top: 38px;
     margin-right: 1%;
-    margin-top: 1%; }
-  .basket .remove-icon:hover {
+    margin-top: 1%;
+    border: #152836 3px solid;
+    border-top: none;
+    padding: 0.5%; }
+    .basket-goods-title, .basket-goods-good {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1%; }
+      .basket-goods-title > span, .basket-goods-good > span {
+        width: 80px; }
+        .basket-goods-title > span:last-child, .basket-goods-good > span:last-child {
+          text-align: center; }
+  .basket .remove-button:hover {
     color: red;
     cursor: pointer; }
 

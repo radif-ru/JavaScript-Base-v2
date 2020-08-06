@@ -29,13 +29,25 @@ body
     margin: 0.5% 0.5%
   &-goods
     z-index: 999
+    width: 33%
     background: white
     position: absolute
     right: 0
-    top: 50px
+    top: 38px
     margin-right: 1%
     margin-top: 1%
-  .remove-icon
+    border: #152836 3px solid
+    border-top: none
+    padding: 0.5%
+    &-title, &-good
+      display: flex
+      justify-content: space-between
+      margin-bottom: 1%
+      >span
+        width: 80px
+        &:last-child
+          text-align: center
+  .remove-button
     &:hover
       color: red
       cursor: pointer

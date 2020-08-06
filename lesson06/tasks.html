@@ -148,13 +148,14 @@
     <div class="basket">
         <button class="basket-button">Корзина <span>&#9660;</span></button>
         <div class="basket-goods">
-            <div>
-                <span>ID</span><span>Имя</span><span>Цена</span><span>Количество</span>
+            <div class="basket-goods-title">
+                <span>ID</span><span>Имя</span><span>Цена</span><span>Количество</span><span></span>
             </div>
-            <div>
-                <span>3</span><span>Товар 1</span><span>Цена</span><span>Количество</span><span class="remove-icon">&#10008;</span>
+            <div class="basket-goods-good">
+                <span>3</span><span>Товар 1</span><span><span>3000</span>р</span><span>1</span>
+                <span class="remove-button" data-id="3">&#10008;</span>
             </div>
-            <div>
+            <div class="basket-goods-total">
                 <span>Итого: </span><span><span>3000</span>р</span>
             </div>
             <div>
@@ -168,19 +169,19 @@
             <h3>Товар 1</h3>
             <img src="http://lorempixel.com/300/300/transport" alt="image">
             <span class="good-price"><span>120</span> р</span>
-            <button class="good-button">В корзину</button>
+            <button class="good-button" data-id="1" data-price="120" data-name="Товар 1">В корзину</button>
         </div>
         <div class="good">
             <h3>Товар 2</h3>
             <img src="http://lorempixel.com/300/300/technics" alt="image">
             <span class="good-price"><span>75</span> р</span>
-            <button class="good-button">В корзину</button>
+            <button class="good-button" data-id="2" data-price="75" data-name="Товар 2">В корзину</button>
         </div>
         <div class="good">
             <h3>Товар 3</h3>
             <img src="http://lorempixel.com/300/300/abstract" alt="image">
             <span class="good-price"><span>3000</span> р</span>
-            <button class="good-button">В корзину</button>
+            <button class="good-button" data-id="3" data-price="3000" data-name="Товар 3">В корзину</button>
         </div>
     </div>
 </div>
