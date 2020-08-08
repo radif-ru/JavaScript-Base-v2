@@ -88,8 +88,10 @@ let images = {
 
     /** Переключиться на предыдущее изображение. */
     setNextLeftImage() {
+        // При листании картинки влево добавляем стили анимации
         this.slides[this.currentIdx].classList.add('slide-out-left');
         setTimeout(() => {
+            // Через 0.5 сек удаляем стиль анимации
             this.slides[this.currentIdx].classList.remove('slide-out-left');
             this.hideVisibleImages();
             if (this.currentIdx == 0) {
@@ -104,7 +106,9 @@ let images = {
 
     /** Переключиться на следующее изображение. */
     setNextRightImage() {
+        // При листании картинки вправо добавляем стили анимации
         this.slides[this.currentIdx].classList.add('slide-out-right');
+        // Через 0.5 сек удаляем стиль анимации
         setTimeout(() => {
             this.slides[this.currentIdx].classList.remove('slide-out-right');
             this.hideVisibleImages();

@@ -24,9 +24,13 @@ const basketAndGoods = {
      */
     addEventClickBasketButton() {
         this.basketButton.addEventListener('click', () => {
-            this.basketGoods.style.display === 'none' ?
-                this.basketGoods.style.display = 'block' :
-                this.basketGoods.style.display = 'none'
+            console.log( this.basketGoods.style.display);
+            console.dir( this.basketGoods.style.display);
+            // Проверяем наличие css свойства, element.style.display - проверяет только inline стили
+            // Для проверки нужно использовать window.getComputedStyle(element).backgroundColor
+            this.basketGoods.style.display = window.getComputedStyle(this.basketGoods).display === 'none' ?
+                'block' :
+                'none'
         });
     },
 
