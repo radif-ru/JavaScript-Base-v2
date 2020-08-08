@@ -781,7 +781,8 @@ body {
     .basket-goods-title, .basket-goods-good {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 1%; }
+      margin-bottom: 1%;
+      border-bottom: #152836 3px solid; }
       .basket-goods-title > span, .basket-goods-good > span {
         width: 80px; }
         .basket-goods-title > span:last-child, .basket-goods-good > span:last-child {

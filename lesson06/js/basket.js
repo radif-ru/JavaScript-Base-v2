@@ -58,7 +58,7 @@ const basketAndGoods = {
 
         // Кнопка удаления товара, если её нет, записывает null в пременную
         let removeButton = this.basketGoods.querySelector(`.removeButton[data-id="${id}"]`);
-        // Если кнопки нет, значит товара, нет - добавляет товар в корзину - заполненная html разметка перед Итого
+        // Если кнопки нет, значит товара нет - добавляет товар в корзину - заполненная html разметка перед Итого
         if (removeButton === null) {
             let good = document.createElement('div');
             good.classList.add('basket-goods-good');
