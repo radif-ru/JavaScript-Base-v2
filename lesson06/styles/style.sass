@@ -1,0 +1,71 @@
+@import "../packages/slider/styles/slider.scss"
+@import "../packages/swiper-slider/styles/swiper-slider.scss"
+@import "../packages/swiper-slider/styles/swiper.min.scss"
+@import "../packages/animista-css/styles/animista"
+
+*
+  margin: 0
+  padding: 0
+
+html
+  height: 100%
+
+body
+  height: 100%
+
+.container
+  width: 1200px
+  margin: 0 auto
+
+.basket
+  position: relative
+  display: flex
+  justify-content: flex-end
+  width: 100%
+  background: #152836
+  height: 50px
+  &-button
+    padding: 0 10px
+    margin: 0.5% 0.5%
+  &-goods
+    display: none
+    z-index: 999
+    width: 33%
+    background: white
+    position: absolute
+    right: 0
+    top: 38px
+    margin-right: 1%
+    margin-top: 1%
+    border: #152836 3px solid
+    border-top: none
+    padding: 0.5%
+    &-title, &-good
+      display: flex
+      justify-content: space-between
+      margin-bottom: 1%
+      border-bottom: #152836 3px solid
+      >span
+        width: 80px
+        &:last-child
+          text-align: center
+    &-good:hover
+      background: moccasin
+  .removeButton
+    &:hover
+      color: red
+      cursor: pointer
+
+
+.goods-container
+  display: flex
+  justify-content: space-between
+  .good
+    display: inline-flex
+    flex-direction: column
+    margin: 2% 4%
+    &-price
+      margin: 2% 0
+    &-button
+      margin: 1% 25%
+      padding: 2%
