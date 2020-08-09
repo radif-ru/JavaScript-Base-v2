@@ -37,7 +37,10 @@ class Board {
         const snakeBodyElems = this.getSnakeBodyElems(this.snake.body);
         if (snakeBodyElems) {
             snakeBodyElems.forEach(function (tdEl) {
-                tdEl.classList.add('snakeBody');
+                // Проверка существует ли элемент
+                if (tdEl !== null) {
+                    tdEl.classList.add('snakeBody');
+                }
             })
         }
     }
@@ -92,19 +95,6 @@ class Board {
         return nextCell === null;
     }
 
-    // 3.3.Сделать, чтобы если змейка ест сама себя, то наступал проигрыш.
-    /**
-     * Является ли следующий шаг, шагом на своё.
-     * @param {Object} nextCellCoords - координаты ячейки, куда змейка собирается сделать шаг.
-     * @param {number} nextCellCoords.x
-     * @param {number} nextCellCoords.y
-     * @returns {boolean}
-     */
-    isNextStepToBody(nextCellCoords) {
-        let nextCell = this.getCellEl(nextCellCoords.x, nextCellCoords.y);
-        return nextCell.classList.contains('snakeBody') === true;
-    }
-
     /**
      * Метод рисует еду на игровом поле.
      * @param {Food} coords будущее расположение еды на поле
@@ -122,6 +112,33 @@ class Board {
      */
     isHeadOnFood() {
         return this.boardEl.querySelector('.food').classList.contains('snakeBody');
+    }
+
+    // 3.3.Сделать, чтобы если змейка ест сама себя, то наступал проигрыш.
+    /**
+     * Является ли следующий шаг, шагом на своё.
+     * @param {Object} nextCellCoords - координаты ячейки, куда змейка собирается сделать шаг.
+     * @param {number} nextCellCoords.x
+     * @param {number} nextCellCoords.y
+     * @returns {boolean}
+     */
+    isNextStepToBody(nextCellCoords) {
+        let nextCell = this.getCellEl(nextCellCoords.x, nextCellCoords.y);
+        // Проверка существует ли элемент
+        if (nextCell !== null) {
+            return nextCell.classList.contains('snakeBody') === true;
+        }
+    }
+
+    // 3. (не обязательное задание, сложное)
+    // 3.1.Выводить счёт игры в режиме реального времени.
+    /**
+     * Генерирует счёт игры на базе длины змейки
+     * @param snakeBodyLength Длина змейки
+     */
+    renderScore(snakeBodyLength) {
+        document.getElementById('score').innerHTML = snakeBodyLength;
+        console.dir(document.getElementById('score'));
     }
 }
 class Food {
@@ -239,14 +256,14 @@ class Game {
      * 3. проверяет проиграна/выиграна ли игра
      * 4. увеличивает размер змейки если она ест еду
      * 5. заново отрисовывает положение змейки и еды
+     * 6. генерирует счёт игры
      */
     doTick() {
         this.snake.performStep();
-
         // 3.2.Убрать границы поля, т.е. при пересечении границы поля, змейка появляется с противоположной
         // стороны, т.е. чтобы она не врезалась в стены.
         this.movingOppositeSide();
-
+        // 3.3.Сделать, чтобы если змейка ест сама себя, то наступал проигрыш.
         if (this.isGameLost()) {
             return;
         }
@@ -260,25 +277,9 @@ class Game {
         this.board.clearBoard();
         this.food.setFood();
         this.board.renderSnake();
-    }
-
-    // 3.2.Убрать границы поля, т.е. при пересечении границы поля, змейка появляется с противоположной
-    // стороны, т.е. чтобы она не врезалась в стены.
-    /**
-     * Метод проверяет, если следующий шаг - стена, перемещает змейку на противоположную сторону
-     */
-    movingOppositeSide() {
-        if (this.board.isNextStepToWall(this.snake.body[0])) {
-            if (this.snake.body[0].x > this.settings.rowsCount) {
-                this.snake.body[0].x = 0;
-            } else if (this.snake.body[0].x < 0) {
-                this.snake.body[0].x = this.settings.rowsCount;
-            } else if (this.snake.body[0].y > this.settings.colsCount) {
-                this.snake.body[0].y = 0;
-            } else if (this.snake.body[0].y < 0) {
-                this.snake.body[0].y = this.settings.colsCount;
-            }
-        }
+        // 3. (не обязательное задание, сложное)
+        // 3.1.Выводить счёт игры в режиме реального времени.
+        this.board.renderScore(this.snake.body.length);
     }
 
     /**
@@ -340,6 +341,25 @@ class Game {
      */
     setMessage(text) {
         this.messageEl.innerText = text;
+    }
+
+    // 3.2.Убрать границы поля, т.е. при пересечении границы поля, змейка появляется с противоположной
+    // стороны, т.е. чтобы она не врезалась в стены.
+    /**
+     * Метод проверяет, если следующий шаг - стена, перемещает змейку на противоположную сторону
+     */
+    movingOppositeSide() {
+        if (this.board.isNextStepToWall(this.snake.body[0])) {
+            if (this.snake.body[0].x > this.settings.rowsCount) {
+                this.snake.body[0].x = 0;
+            } else if (this.snake.body[0].x < 0) {
+                this.snake.body[0].x = this.settings.rowsCount;
+            } else if (this.snake.body[0].y > this.settings.colsCount) {
+                this.snake.body[0].y = 0;
+            } else if (this.snake.body[0].y < 0) {
+                this.snake.body[0].y = this.settings.colsCount;
+            }
+        }
     }
 }
 window.addEventListener('load', () => {

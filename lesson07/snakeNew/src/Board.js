@@ -37,7 +37,10 @@ class Board {
         const snakeBodyElems = this.getSnakeBodyElems(this.snake.body);
         if (snakeBodyElems) {
             snakeBodyElems.forEach(function (tdEl) {
-                tdEl.classList.add('snakeBody');
+                // Проверка существует ли элемент
+                if (tdEl !== null) {
+                    tdEl.classList.add('snakeBody');
+                }
             })
         }
     }
@@ -92,19 +95,6 @@ class Board {
         return nextCell === null;
     }
 
-    // 3.3.Сделать, чтобы если змейка ест сама себя, то наступал проигрыш.
-    /**
-     * Является ли следующий шаг, шагом на своё.
-     * @param {Object} nextCellCoords - координаты ячейки, куда змейка собирается сделать шаг.
-     * @param {number} nextCellCoords.x
-     * @param {number} nextCellCoords.y
-     * @returns {boolean}
-     */
-    isNextStepToBody(nextCellCoords) {
-        let nextCell = this.getCellEl(nextCellCoords.x, nextCellCoords.y);
-        return nextCell.classList.contains('snakeBody') === true;
-    }
-
     /**
      * Метод рисует еду на игровом поле.
      * @param {Food} coords будущее расположение еды на поле
@@ -122,5 +112,32 @@ class Board {
      */
     isHeadOnFood() {
         return this.boardEl.querySelector('.food').classList.contains('snakeBody');
+    }
+
+    // 3.3.Сделать, чтобы если змейка ест сама себя, то наступал проигрыш.
+    /**
+     * Является ли следующий шаг, шагом на своё.
+     * @param {Object} nextCellCoords - координаты ячейки, куда змейка собирается сделать шаг.
+     * @param {number} nextCellCoords.x
+     * @param {number} nextCellCoords.y
+     * @returns {boolean}
+     */
+    isNextStepToBody(nextCellCoords) {
+        let nextCell = this.getCellEl(nextCellCoords.x, nextCellCoords.y);
+        // Проверка существует ли элемент
+        if (nextCell !== null) {
+            return nextCell.classList.contains('snakeBody') === true;
+        }
+    }
+
+    // 3. (не обязательное задание, сложное)
+    // 3.1.Выводить счёт игры в режиме реального времени.
+    /**
+     * Генерирует счёт игры на базе длины змейки
+     * @param snakeBodyLength Длина змейки
+     */
+    renderScore(snakeBodyLength) {
+        document.getElementById('score').innerHTML = snakeBodyLength;
+        console.dir(document.getElementById('score'));
     }
 }
