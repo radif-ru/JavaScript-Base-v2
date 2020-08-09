@@ -46,3 +46,13 @@ td {
     color: orange;
     font-size: 24px;
 }
+
+.score {
+    color: salmon;
+    font-size: 24px;
+    margin-left: 45px;
+}
+
+#score {
+    color: gold;
+}
