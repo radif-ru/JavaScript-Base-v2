@@ -17,5 +17,13 @@ class Board {
                 tr.appendChild(td);
             }
         }
-    }
+    };
+
+    /**
+     * Инициализация обработчиков событий.
+     */
+    initEventHandlers() {
+        // Ставим обработчик, при клике на таблицу вызовется функция this.cellClickHandler.
+        this.gameTableElement.addEventListener('click', event => this.cellClickHandler(event));
+    };
 }
