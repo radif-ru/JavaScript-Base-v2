@@ -36,7 +36,7 @@ class Board {
     renderSnake() {
         const snakeBodyElems = this.getSnakeBodyElems(this.snake.body);
         if (snakeBodyElems) {
-            snakeBodyElems.forEach(function(tdEl) {
+            snakeBodyElems.forEach(function (tdEl) {
                 tdEl.classList.add('snakeBody');
             })
         }
@@ -47,7 +47,7 @@ class Board {
      */
     clearBoard() {
         const tdElems = document.querySelectorAll('td');
-        tdElems.forEach(function(td) {
+        tdElems.forEach(function (td) {
             td.className = "";
         });
     }
@@ -90,6 +90,19 @@ class Board {
     isNextStepToWall(nextCellCoords) {
         let nextCell = this.getCellEl(nextCellCoords.x, nextCellCoords.y);
         return nextCell === null;
+    }
+
+    // 3.3.Сделать, чтобы если змейка ест сама себя, то наступал проигрыш.
+    /**
+     * Является ли следующий шаг, шагом на своё.
+     * @param {Object} nextCellCoords - координаты ячейки, куда змейка собирается сделать шаг.
+     * @param {number} nextCellCoords.x
+     * @param {number} nextCellCoords.y
+     * @returns {boolean}
+     */
+    isNextStepToBody(nextCellCoords) {
+        let nextCell = this.getCellEl(nextCellCoords.x, nextCellCoords.y);
+        return nextCell.classList.contains('snakeBody') === true;
     }
 
     /**
