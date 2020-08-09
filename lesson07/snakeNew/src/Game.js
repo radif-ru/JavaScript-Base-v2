@@ -55,15 +55,19 @@ class Game {
     /**
      * Этот метод запускается каждую секунду и осуществляет:
      * 1. перемещение змейки
-     * 2. проверяет проиграна/выиграна ли игра
-     * 3. увеличивает размер змейки если она ест еду
-     * 4. заново отрисовывает положение змейки и еды
+     * 2. перемещение змейки на противоположную сторону если следующий шаг - стена
+     * 3. проверяет проиграна/выиграна ли игра
+     * 4. увеличивает размер змейки если она ест еду
+     * 5. заново отрисовывает положение змейки и еды
      */
     doTick() {
         this.snake.performStep();
-        if (this.isGameLost()) {
-            return;
-        }
+
+        this.movingOppositeSide();
+
+        // if (this.isGameLost()) {
+        //     return;
+        // }
         if (this.isGameWon()) {
             return;
         }
@@ -74,6 +78,23 @@ class Game {
         this.board.clearBoard();
         this.food.setFood();
         this.board.renderSnake();
+    }
+
+    /**
+     * Метод проверяет, если следующий шаг - стена, перемещает змейку напротивоположную сторону
+     */
+    movingOppositeSide() {
+        if (this.board.isNextStepToWall(this.snake.body[0])) {
+            if (this.snake.body[0].x > this.settings.rowsCount) {
+                this.snake.body[0].x = 0;
+            } else if (this.snake.body[0].x < 0) {
+                this.snake.body[0].x = this.settings.rowsCount;
+            } else if (this.snake.body[0].y > this.settings.colsCount) {
+                this.snake.body[0].y = 0;
+            } else if (this.snake.body[0].y < 0) {
+                this.snake.body[0].y = this.settings.colsCount;
+            }
+        }
     }
 
     /**
@@ -97,14 +118,14 @@ class Game {
      * @returns {boolean} если мы шагнули в стену, тогда
      * true, иначе false.
      */
-    isGameLost() {
-        if (this.board.isNextStepToWall(this.snake.body[0])) {
-            clearInterval(this.tickIdentifier);
-            this.setMessage('Вы проиграли');
-            return true;
-        }
-        return false;
-    }
+    // isGameLost() {
+    //     if (this.board.isNextStepToWall(this.snake.body[0])) {
+    //         clearInterval(this.tickIdentifier);
+    //         this.setMessage('Вы проиграли');
+    //         return true;
+    //     }
+    //     return false;
+    // }
 
     /**
      * В зависимости от нажатой кнопки (вверх, вниз, влево, вправо) будет 
