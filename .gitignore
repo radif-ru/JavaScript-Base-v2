@@ -1,7 +1,6 @@
 # IntellijIdea files
 .idea
 
-# Задачи с тренировок
-examples.py
-text.txt
-out_file.txt
+# Нод модули во всех каталогах
+**/node_modules
+**/dist
